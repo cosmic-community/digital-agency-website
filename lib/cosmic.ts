@@ -4,6 +4,7 @@ import { Service, CaseStudy, TeamMember, Testimonial, PageContent } from '@/type
 const cosmic = createBucketClient({
   bucketSlug: process.env.COSMIC_BUCKET_SLUG!,
   readKey: process.env.COSMIC_READ_KEY!,
+  apiEnvironment: "staging"
 })
 
 export async function getServices(): Promise<Service[]> {
