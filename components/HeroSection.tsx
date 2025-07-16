@@ -105,19 +105,19 @@ export default function HeroSection({ content }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Right column - Visual elements */}
+          {/* Right column - Visual elements with shine effect */}
           <div className="hidden lg:block relative">
-            <div className="relative">
+            <div className="relative shine-effect">
               {/* Mockup screens */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-2xl backdrop-blur-sm border border-white/10"></div>
-              <div className="relative p-8">
+              <div className="relative p-8 z-10">
                 <div className="space-y-4">
-                  <div className="h-4 bg-white/20 rounded w-3/4"></div>
-                  <div className="h-4 bg-white/20 rounded w-1/2"></div>
-                  <div className="h-32 bg-white/10 rounded-lg"></div>
+                  <div className="h-4 bg-white/20 rounded w-3/4 shine-effect"></div>
+                  <div className="h-4 bg-white/20 rounded w-1/2 shine-effect"></div>
+                  <div className="h-32 bg-white/10 rounded-lg shine-effect"></div>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="h-16 bg-white/10 rounded"></div>
-                    <div className="h-16 bg-white/10 rounded"></div>
+                    <div className="h-16 bg-white/10 rounded shine-effect"></div>
+                    <div className="h-16 bg-white/10 rounded shine-effect"></div>
                   </div>
                 </div>
               </div>
