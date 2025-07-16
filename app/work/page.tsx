@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default async function WorkPage() {
   const [caseStudies, pageContent] = await Promise.all([
     getCaseStudies(),
-    getPageContent(),
+    getPageContent('homepage-content'),
   ])
 
   const fallbackContent = {

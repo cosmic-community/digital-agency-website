@@ -1,6 +1,6 @@
 // app/work/[slug]/page.tsx
-import { getCaseStudyBySlug, getCaseStudies } from '@/lib/cosmic'
-import { CaseStudy } from '@/types'
+import { getCaseStudy, getCaseStudies } from '@/lib/cosmic'
+import { CaseStudy, Service, TeamMember } from '@/types'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -12,7 +12,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
   const { slug } = await params
   
   try {
-    const caseStudy = await getCaseStudyBySlug(slug)
+    const caseStudy = await getCaseStudy(slug)
     
     if (!caseStudy) {
       notFound()
@@ -102,7 +102,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 <section>
                   <h2 className="text-2xl font-bold text-gray-900 mb-6">Project Gallery</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {caseStudy.metadata.gallery.map((image, index) => (
+                    {caseStudy.metadata.gallery.map((image: { imgix_url: string }, index: number) => (
                       <div key={index} className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
                         <img 
                           src={`${image.imgix_url}?w=600&h=400&fit=crop&auto=format,compress`}
@@ -124,7 +124,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                   <div className="card p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Services Used</h3>
                     <div className="space-y-3">
-                      {caseStudy.metadata.services_used.map((service, index) => (
+                      {caseStudy.metadata.services_used.map((service: Service, index: number) => (
                         <div key={index} className="flex items-center space-x-3">
                           {service.metadata.icon && (
                             <img 
@@ -145,7 +145,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                   <div className="card p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Project Team</h3>
                     <div className="space-y-4">
-                      {caseStudy.metadata.team_members.map((member, index) => (
+                      {caseStudy.metadata.team_members.map((member: TeamMember, index: number) => (
                         <div key={index} className="flex items-center space-x-3">
                           {member.metadata.photo && (
                             <img 

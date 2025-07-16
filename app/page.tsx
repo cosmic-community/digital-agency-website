@@ -12,7 +12,7 @@ export default async function HomePage() {
     getTeamMembers(),
     getCaseStudies(),
     getTestimonials(),
-    getPageContent(),
+    getPageContent('homepage-content'),
   ])
 
   return (

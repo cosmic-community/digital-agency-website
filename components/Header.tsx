@@ -20,10 +20,10 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="#services" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <Link href="/services" className="text-gray-700 hover:text-primary-600 transition-colors">
               Services
             </Link>
-            <Link href="#work" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <Link href="/work" className="text-gray-700 hover:text-primary-600 transition-colors">
               Work
             </Link>
             <Link href="#team" className="text-gray-700 hover:text-primary-600 transition-colors">
@@ -58,14 +58,14 @@ export default function Header() {
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
               <Link 
-                href="#services" 
+                href="/services" 
                 className="text-gray-700 hover:text-primary-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
               </Link>
               <Link 
-                href="#work" 
+                href="/work" 
                 className="text-gray-700 hover:text-primary-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
