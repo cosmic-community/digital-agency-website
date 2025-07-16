@@ -86,7 +86,7 @@ export default async function ServicesPage() {
                 )}
                 
                 {/* Team Lead */}
-                {service.metadata.team_lead && (
+                {service.metadata.team_lead && service.metadata.team_lead.metadata.photo && (
                   <div className="flex items-center mb-6 p-4 bg-gray-50 rounded-lg">
                     <img 
                       src={`${service.metadata.team_lead.metadata.photo.imgix_url}?w=80&h=80&fit=crop&auto=format,compress`}

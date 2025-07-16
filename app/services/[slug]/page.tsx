@@ -1,3 +1,4 @@
+// app/services/[slug]/page.tsx
 import { getService } from '@/lib/cosmic'
 import { Service } from '@/types'
 import { notFound } from 'next/navigation'
@@ -129,11 +130,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
                       Team Lead
                     </h3>
                     <div className="text-center">
-                      <img 
-                        src={`${service.metadata.team_lead.metadata.photo.imgix_url}?w=200&h=200&fit=crop&auto=format,compress`}
-                        alt={service.metadata.team_lead.metadata.name}
-                        className="w-24 h-24 rounded-full object-cover mx-auto mb-4"
-                      />
+                      {service.metadata.team_lead.metadata.photo && (
+                        <img 
+                          src={`${service.metadata.team_lead.metadata.photo.imgix_url}?w=200&h=200&fit=crop&auto=format,compress`}
+                          alt={service.metadata.team_lead.metadata.name}
+                          className="w-24 h-24 rounded-full object-cover mx-auto mb-4"
+                        />
+                      )}
                       <h4 className="text-lg font-semibold text-gray-900">
                         {service.metadata.team_lead.metadata.name}
                       </h4>
