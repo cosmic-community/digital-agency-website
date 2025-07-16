@@ -23,11 +23,20 @@ export default function HeroSection({ content }: HeroSectionProps) {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with improved gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900"></div>
+      {/* Background image from Cosmic bucket */}
+      <div className="absolute inset-0">
+        <img 
+          src="https://imgix.cosmicjs.com/88bf6a30-625a-11f0-a051-23c10f41277a-photo-1460925895917-afdab827c52f-1752680142462.jpg?w=1920&h=1080&fit=crop&auto=format,compress"
+          alt="Hero background"
+          className="w-full h-full object-cover"
+        />
+      </div>
       
-      {/* Background image overlay */}
-      <div className="absolute inset-0 bg-black/20"></div>
+      {/* Gradient overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-indigo-900/70 to-blue-900/80"></div>
+      
+      {/* Additional dark overlay for text contrast */}
+      <div className="absolute inset-0 bg-black/30"></div>
       
       {/* Background pattern for texture */}
       <div className="absolute inset-0 opacity-10">
