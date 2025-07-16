@@ -116,7 +116,7 @@ export function isTestimonial(obj: CosmicObject): obj is Testimonial {
 }
 
 // Utility types
-export type OptionalMetadata<T> = Partial<T['metadata']>;
+export type OptionalMetadata<T extends { metadata: any }> = Partial<T['metadata']>;
 export type CreateServiceData = Omit<Service, 'id' | 'created_at' | 'modified_at'>;
 export type CreateTeamMemberData = Omit<TeamMember, 'id' | 'created_at' | 'modified_at'>;
 export type CreateCaseStudyData = Omit<CaseStudy, 'id' | 'created_at' | 'modified_at'>;
