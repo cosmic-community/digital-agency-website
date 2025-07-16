@@ -7,8 +7,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
         primary: {
-          DEFAULT: '#6366f1',
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
           50: '#eef2ff',
           100: '#e0e7ff',
           500: '#6366f1',
@@ -18,7 +29,8 @@ module.exports = {
           900: '#312e81',
         },
         secondary: {
-          DEFAULT: '#8b5cf6',
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
           50: '#f5f3ff',
           100: '#ede9fe',
           500: '#8b5cf6',
@@ -27,8 +39,13 @@ module.exports = {
           800: '#5b21b6',
           900: '#4c1d95',
         },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
         accent: {
-          DEFAULT: '#06b6d4',
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
           50: '#ecfeff',
           100: '#cffafe',
           500: '#06b6d4',
@@ -37,6 +54,13 @@ module.exports = {
           800: '#155e75',
           900: '#164e63',
         },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
         neutral: {
           50: '#fafafa',
           100: '#f5f5f5',
@@ -49,6 +73,11 @@ module.exports = {
           800: '#262626',
           900: '#171717',
         },
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
