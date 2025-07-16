@@ -26,10 +26,10 @@ export default function Header() {
             <Link href="/work" className="text-gray-700 hover:text-primary-600 transition-colors">
               Work
             </Link>
-            <Link href="#team" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <Link href="/team" className="text-gray-700 hover:text-primary-600 transition-colors">
               Team
             </Link>
-            <Link href="#testimonials" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <Link href="/testimonials" className="text-gray-700 hover:text-primary-600 transition-colors">
               Testimonials
             </Link>
             <button className="btn btn-primary px-6 py-2">
@@ -72,14 +72,14 @@ export default function Header() {
                 Work
               </Link>
               <Link 
-                href="#team" 
+                href="/team" 
                 className="text-gray-700 hover:text-primary-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Team
               </Link>
               <Link 
-                href="#testimonials" 
+                href="/testimonials" 
                 className="text-gray-700 hover:text-primary-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
