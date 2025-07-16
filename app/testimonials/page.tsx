@@ -39,7 +39,7 @@ export default async function TestimonialsPage() {
                       <svg
                         key={i}
                         className={`w-5 h-5 ${
-                          i < parseInt(testimonial.metadata.rating.key)
+                          i < parseInt(testimonial.metadata.rating?.key || '0')
                             ? 'text-yellow-400'
                             : 'text-gray-300'
                         }`}
