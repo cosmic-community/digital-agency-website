@@ -2,7 +2,7 @@
 
 ![App Preview](https://imgix.cosmicjs.com/88bf6a30-625a-11f0-a051-23c10f41277a-photo-1460925895917-afdab827c52f-1752680142462.jpg?w=1200&h=300&fit=crop&auto=format,compress)
 
-A professional digital agency website showcasing services, team members, case studies, and client testimonials. Built with Next.js and powered by Cosmic CMS, this modern website features a clean, professional design with dynamic content management capabilities.
+A professional digital agency website showcasing services, team members, case studies, and client testimonials. Built with Next.js and powered by Cosmic CMS, this modern website features a clean, professional design with dynamic content management capabilities. TEST
 
 ## ✨ Features
 
