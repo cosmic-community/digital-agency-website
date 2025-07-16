@@ -1,19 +1,27 @@
-import { TeamMember } from '@/types'
+import { TeamMember, PageContent } from '@/types'
 
 interface TeamSectionProps {
   teamMembers: TeamMember[]
+  content: PageContent | null
 }
 
-export default function TeamSection({ teamMembers }: TeamSectionProps) {
+export default function TeamSection({ teamMembers, content }: TeamSectionProps) {
+  const fallbackContent = {
+    team_section_title: "Meet Our Team",
+    team_section_description: "Our talented team of designers, developers, and strategists are passionate about creating exceptional digital experiences."
+  }
+
+  const sectionContent = content?.metadata || fallbackContent
+
   return (
     <section id="team" className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Meet Our Team
+            {sectionContent.team_section_title}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Our talented team of designers, developers, and strategists are passionate about creating exceptional digital experiences.
+            {sectionContent.team_section_description}
           </p>
         </div>
 

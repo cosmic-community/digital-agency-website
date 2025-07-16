@@ -1,19 +1,27 @@
-import { CaseStudy } from '@/types'
+import { CaseStudy, PageContent } from '@/types'
 
 interface CaseStudiesSectionProps {
   caseStudies: CaseStudy[]
+  content: PageContent | null
 }
 
-export default function CaseStudiesSection({ caseStudies }: CaseStudiesSectionProps) {
+export default function CaseStudiesSection({ caseStudies, content }: CaseStudiesSectionProps) {
+  const fallbackContent = {
+    case_studies_section_title: "Our Work",
+    case_studies_section_description: "Explore our portfolio of successful projects and see how we've helped businesses achieve their digital goals."
+  }
+
+  const sectionContent = content?.metadata || fallbackContent
+
   return (
     <section id="work" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Work
+            {sectionContent.case_studies_section_title}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Explore our portfolio of successful projects and see how we've helped businesses achieve their digital goals.
+            {sectionContent.case_studies_section_description}
           </p>
         </div>
 

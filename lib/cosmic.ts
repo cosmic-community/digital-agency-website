@@ -1,5 +1,5 @@
 import { createBucketClient } from '@cosmicjs/sdk'
-import { Service, TeamMember, CaseStudy, Testimonial } from '@/types'
+import { Service, TeamMember, CaseStudy, Testimonial, PageContent } from '@/types'
 
 if (!process.env.COSMIC_BUCKET_SLUG) {
   throw new Error('COSMIC_BUCKET_SLUG is required')
@@ -19,6 +19,28 @@ export const cosmic = createBucketClient({
 // Error helper for Cosmic SDK
 function hasStatus(error: unknown): error is { status: number } {
   return typeof error === 'object' && error !== null && 'status' in error;
+}
+
+// Page content functions
+export async function getPageContent(): Promise<PageContent | null> {
+  try {
+    const response = await cosmic.objects.findOne({
+      type: 'page-content',
+    })
+    
+    const pageContent = response.object as PageContent
+    
+    if (!pageContent || !pageContent.metadata) {
+      return null
+    }
+    
+    return pageContent
+  } catch (error) {
+    if (hasStatus(error) && error.status === 404) {
+      return null
+    }
+    throw new Error('Failed to fetch page content')
+  }
 }
 
 // Service functions

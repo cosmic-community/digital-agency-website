@@ -13,6 +13,35 @@ interface CosmicObject {
   thumbnail?: string;
 }
 
+// Page Content interface
+export interface PageContent extends CosmicObject {
+  type: 'page-content';
+  metadata: {
+    hero_badge_text: string;
+    hero_main_headline: string;
+    hero_highlight_text: string;
+    hero_subtitle: string;
+    hero_button_text: string;
+    hero_review_text: string;
+    hero_award_text: string;
+    hero_award_source: string;
+    hero_client_logos?: string;
+    services_section_title: string;
+    services_section_description: string;
+    case_studies_section_title: string;
+    case_studies_section_description: string;
+    team_section_title: string;
+    team_section_description: string;
+    testimonials_section_title: string;
+    testimonials_section_description: string;
+    cta_section_title: string;
+    cta_section_description: string;
+    cta_primary_button_text: string;
+    cta_secondary_button_text: string;
+    cta_footer_text: string;
+  };
+}
+
 // Service interface
 export interface Service extends CosmicObject {
   type: 'services';
@@ -99,6 +128,10 @@ export interface CosmicResponse<T> {
 }
 
 // Type guards
+export function isPageContent(obj: CosmicObject): obj is PageContent {
+  return obj.type === 'page-content';
+}
+
 export function isService(obj: CosmicObject): obj is Service {
   return obj.type === 'services';
 }
@@ -117,6 +150,7 @@ export function isTestimonial(obj: CosmicObject): obj is Testimonial {
 
 // Utility types
 export type OptionalMetadata<T extends { metadata: any }> = Partial<T['metadata']>;
+export type CreatePageContentData = Omit<PageContent, 'id' | 'created_at' | 'modified_at'>;
 export type CreateServiceData = Omit<Service, 'id' | 'created_at' | 'modified_at'>;
 export type CreateTeamMemberData = Omit<TeamMember, 'id' | 'created_at' | 'modified_at'>;
 export type CreateCaseStudyData = Omit<CaseStudy, 'id' | 'created_at' | 'modified_at'>;

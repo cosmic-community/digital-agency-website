@@ -1,19 +1,27 @@
-import { Service } from '@/types'
+import { Service, PageContent } from '@/types'
 
 interface ServicesSectionProps {
   services: Service[]
+  content: PageContent | null
 }
 
-export default function ServicesSection({ services }: ServicesSectionProps) {
+export default function ServicesSection({ services, content }: ServicesSectionProps) {
+  const fallbackContent = {
+    services_section_title: "Our Services",
+    services_section_description: "We provide comprehensive digital solutions to help your business grow and succeed online."
+  }
+
+  const sectionContent = content?.metadata || fallbackContent
+
   return (
     <section id="services" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Services
+            {sectionContent.services_section_title}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We provide comprehensive digital solutions to help your business grow and succeed online.
+            {sectionContent.services_section_description}
           </p>
         </div>
 

@@ -1,10 +1,18 @@
-import { Testimonial } from '@/types'
+import { Testimonial, PageContent } from '@/types'
 
 interface TestimonialsSectionProps {
   testimonials: Testimonial[]
+  content: PageContent | null
 }
 
-export default function TestimonialsSection({ testimonials }: TestimonialsSectionProps) {
+export default function TestimonialsSection({ testimonials, content }: TestimonialsSectionProps) {
+  const fallbackContent = {
+    testimonials_section_title: "What Our Clients Say",
+    testimonials_section_description: "Don't just take our word for it. See what our satisfied clients have to say about working with us."
+  }
+
+  const sectionContent = content?.metadata || fallbackContent
+
   const renderStars = (rating: string) => {
     const numStars = parseInt(rating)
     return (
@@ -28,10 +36,10 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            What Our Clients Say
+            {sectionContent.testimonials_section_title}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it. See what our satisfied clients have to say about working with us.
+            {sectionContent.testimonials_section_description}
           </p>
         </div>
 
