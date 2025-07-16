@@ -54,10 +54,10 @@ export default function HeroSection({ content }: HeroSectionProps) {
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
-          {/* Left column - Content */}
+          {/* Left column - Content (NO shine effects) */}
           <div className="text-center lg:text-left">
             <div className="mb-6">
-              <span className="inline-block px-3 py-1 text-sm font-medium text-purple-200 bg-purple-800/30 rounded-full border border-purple-500/30 shine-effect">
+              <span className="inline-block px-3 py-1 text-sm font-medium text-purple-200 bg-purple-800/30 rounded-full border border-purple-500/30">
                 {heroContent.hero_badge_text}
               </span>
             </div>
@@ -65,7 +65,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               {heroContent.hero_main_headline}
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300 shine-effect">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300">
                 {heroContent.hero_highlight_text}
               </span>
             </h1>
@@ -75,7 +75,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-12">
-              <button className="btn btn-primary px-8 py-4 text-lg bg-white text-purple-900 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl shine-effect glow-effect">
+              <button className="btn btn-primary px-8 py-4 text-lg bg-white text-purple-900 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                 {heroContent.hero_button_text}
               </button>
               <div className="flex items-center space-x-2 text-purple-200">
@@ -105,40 +105,74 @@ export default function HeroSection({ content }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Right column - Visual elements with enhanced shine effects */}
+          {/* Right column - Visual elements with shine animation (SVG-like elements) */}
           <div className="hidden lg:block relative">
-            <div className="relative shine-effect glow-effect">
-              {/* Main container with shine effect */}
+            {/* This is the main "SVG-like" container that gets the shine effect */}
+            <div className="relative shine-effect">
+              {/* Main container with subtle glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-2xl backdrop-blur-sm border border-white/10"></div>
               
-              {/* Content with individual shine effects */}
+              {/* Content representing dashboard/interface elements */}
               <div className="relative p-8 z-10">
                 <div className="space-y-4">
-                  {/* Animated bars with different shine timings */}
-                  <div className="h-4 bg-white/20 rounded w-3/4 shine-effect"></div>
-                  <div className="h-4 bg-white/20 rounded w-1/2 shine-effect-fast"></div>
-                  
-                  {/* Large content area with shine */}
-                  <div className="h-32 bg-white/10 rounded-lg shine-effect-slow border border-white/20"></div>
-                  
-                  {/* Grid of elements with staggered shine effects */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="h-16 bg-white/10 rounded shine-effect border border-white/20"></div>
-                    <div className="h-16 bg-white/10 rounded shine-effect-fast border border-white/20"></div>
+                  {/* Top navigation bar */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex space-x-2">
+                      <div className="w-3 h-3 bg-red-400/40 rounded-full"></div>
+                      <div className="w-3 h-3 bg-yellow-400/40 rounded-full"></div>
+                      <div className="w-3 h-3 bg-green-400/40 rounded-full"></div>
+                    </div>
+                    <div className="h-2 bg-white/20 rounded w-20"></div>
                   </div>
                   
-                  {/* Additional decorative elements */}
-                  <div className="flex space-x-2">
-                    <div className="w-8 h-8 bg-purple-400/30 rounded-full shine-effect"></div>
-                    <div className="w-8 h-8 bg-blue-400/30 rounded-full shine-effect-fast"></div>
-                    <div className="w-8 h-8 bg-indigo-400/30 rounded-full shine-effect-slow"></div>
+                  {/* Header bars */}
+                  <div className="h-4 bg-white/20 rounded w-3/4"></div>
+                  <div className="h-4 bg-white/20 rounded w-1/2"></div>
+                  
+                  {/* Large content area (like a chart or dashboard) */}
+                  <div className="h-32 bg-white/10 rounded-lg border border-white/20 p-4">
+                    <div className="flex items-end space-x-2 h-full">
+                      <div className="w-4 bg-purple-400/30 rounded-t" style={{height: '60%'}}></div>
+                      <div className="w-4 bg-blue-400/30 rounded-t" style={{height: '80%'}}></div>
+                      <div className="w-4 bg-indigo-400/30 rounded-t" style={{height: '40%'}}></div>
+                      <div className="w-4 bg-purple-400/30 rounded-t" style={{height: '90%'}}></div>
+                      <div className="w-4 bg-blue-400/30 rounded-t" style={{height: '70%'}}></div>
+                    </div>
+                  </div>
+                  
+                  {/* Grid of cards */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="h-16 bg-white/10 rounded border border-white/20 p-2">
+                      <div className="w-full h-2 bg-white/20 rounded mb-2"></div>
+                      <div className="w-2/3 h-2 bg-white/20 rounded"></div>
+                    </div>
+                    <div className="h-16 bg-white/10 rounded border border-white/20 p-2">
+                      <div className="w-full h-2 bg-white/20 rounded mb-2"></div>
+                      <div className="w-2/3 h-2 bg-white/20 rounded"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Status indicators */}
+                  <div className="flex justify-between items-center">
+                    <div className="flex space-x-2">
+                      <div className="w-8 h-8 bg-purple-400/30 rounded-full flex items-center justify-center">
+                        <div className="w-3 h-3 bg-purple-400/60 rounded-full"></div>
+                      </div>
+                      <div className="w-8 h-8 bg-blue-400/30 rounded-full flex items-center justify-center">
+                        <div className="w-3 h-3 bg-blue-400/60 rounded-full"></div>
+                      </div>
+                      <div className="w-8 h-8 bg-indigo-400/30 rounded-full flex items-center justify-center">
+                        <div className="w-3 h-3 bg-indigo-400/60 rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="h-2 bg-white/20 rounded w-16"></div>
                   </div>
                 </div>
               </div>
               
-              {/* Decorative shine elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-white/20 rounded-full shine-effect"></div>
-              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-white/10 rounded-full shine-effect-slow"></div>
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-white/20 rounded-full"></div>
+              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-white/10 rounded-full"></div>
             </div>
           </div>
         </div>
